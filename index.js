@@ -1,10 +1,12 @@
 const express = require('express');
 const helmet = require('helmet');
+const welcomeRouter = require("./routers/welcome");
 
 const server = express();
 const port = process.env.PORT || 4000;
 server.use(helmet());
 server.use(express.json());
+server.use(welcomeRouter);
 
 server.use((req, res, next, err) => {
     console.log(err);
