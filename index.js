@@ -12,8 +12,8 @@ server.use(welcomeRouter);
 server.use('/projects', projectRouter);
 server.use('/resources', resourceRouter);
 
-server.use((req, res, next, err) => {
-    console.log(err);
+server.use((err, req, res, next) => {
+    console.log(err)
     return res.status(500).json({
         errorMessage: "A server error has occurred"
     })

@@ -10,7 +10,7 @@ function getProjectId(id) {
 
 function getProjectTasks(projectId) {
     return db("tasks as t")
-        .innerJoin("projects as p", "t.project_id", "p,id")
+        .innerJoin("projects as p", "t.project_id", "p.id")
         .where('project_id', projectId)
         .select([
             "t.id",
